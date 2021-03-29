@@ -6,17 +6,34 @@ document.getElementById("onSend").onclick = function() {
     const array = ["localhost:3000", "example2", "example3 ...."];
     
     if (array.includes(inputValue) == true){
-        const url = inputValue + "/cat";
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: { test: "test" }
-        }).done(function( msg ) {
-            if (msg = 'sample connection was successed!') {
-                document.getElementById("result").innerHTML = "<p>[Safety EDS] Success</p>"
-            }else{
-                document.getElementById("result").innerHTML = "<p>[Safety EDS] Fail</p>"
-            }
-        })
-    }
+        document.getElementById("result").innerHTML = `
+        <p class="p-result">[Safety EDS] ${inputValue}</p>
+        <div class="boxContainer">
+        <div class="box">
+        <span class="material-icons">
+        check_circle_outline
+        </span>
+        </div>
+        <div class="box">
+        <p class="bold">Your EDS Server is certified by EDS Organization</p>
+        </div>
+        </div>
+        `
+    };
+
+    if (array.includes(inputValue) == false){
+        document.getElementById("result").innerHTML = `
+        <p class="p-result">[Third-Party EDS] ${inputValue}</p>
+        <div class="boxContainer">
+        <div class="box">
+        <span class="material-icons">
+        feedback
+        </span>
+        </div>
+        <div class="box">
+        <p class="bold">Your EDS Server is not certified by EDS Organization</p>
+        </div>
+        </div>
+        `
+    };
 }

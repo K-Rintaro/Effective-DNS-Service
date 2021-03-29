@@ -17,6 +17,13 @@ I suppose that the organization which manage the EDS certify some servers as "sa
 
 Users can create other EDS servers freely, and they can set them as "third-party EDS".
 
+## Routing naming convention
+
+|  Route  |      Intent     |
+|  ----   |      -----      |
+|  /dog   |   EDS Connect   |
+|  /cat   |  Sample Connect |
+
 ## LICENSE
 EDS is licensed under the MIT license. Please check LICENSE.
 
