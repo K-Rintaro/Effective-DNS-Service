@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+        <title>DNS Setting Example</title>
+    </head>
+    <body>
+        <h1>This is DNS setting example page</h1>
+        <div class="boxContainer">
+            <div class="box">
+                <p>EDS:</p>
+            </div>
+            <div class="box">
+                <form name="example_form" method="post" action="" id="form1">
+                    <input type="text" name="name1" id="input-msg" />
+                </form>
+            </div>
+            <div class="box">
+                <button class="onSend" id="onSend">Submit</button>
+            </div>
+        </div>          
+        <div id="result"></div>
+        <footer>©︎2021 Rintaro Kobayashi &#12296; git.rintaro@gmail.com &#12297;</footer>
+        <style>
+            body{
+                font-family: 'Roboto', sans-serif;
+            }
+            .box{
+                display: inline-block;
+                font-size: 16px;
+            }
+            .boxContainer{
+                font-size: 0;
+            }
+        </style>
+        <script src="example.js"></script>
+    </body>
+</html>

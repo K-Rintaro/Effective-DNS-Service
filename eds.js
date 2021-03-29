@@ -22,3 +22,10 @@ app.post('/dog', function(req, res, next) {
         res.send(addresses)
     });
 });
+
+app.post('/cat', function(req, res, next) {
+  const FQDN = req.body.fqdn;
+  dns.lookup(FQDN, function (err, addresses, family) {
+      res.send('sample connection was successed!')
+  });
+});
