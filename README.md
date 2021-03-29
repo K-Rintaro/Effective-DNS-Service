@@ -4,7 +4,7 @@ The new model of DNS(Domain Name System) that can use normal web server.
 ## What's this?
 Original DNS has a problem that data is used as plain text, and there are some ways to encrypt like DNS over HTTPS.
 
-Also, DNS over HTTPS has a problem that it is impossible to set parental controls and so on.
+Also, DNS over HTTPS has a problem that it is difficult to set web filtering and so on.
 
 This service is the new model that can connect to DNS server through normal web server.
 
