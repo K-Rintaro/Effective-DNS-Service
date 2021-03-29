@@ -22,9 +22,7 @@ app.post('/dog', function(req, res, next) {
       const dnsip = dnsResponse.answers
       const kakunouko = []
       for (let i = 0; i < dnsip.length; i++){
-        if (dnsip[i].type === "A" || dnsip[i].type === "AAAA"){
-          kakunouko.push(dnsip[i].data);
-        }
+          kakunouko.push({record: dnsip[i].type , address: dnsip[i].data});
       }
       res.send(kakunouko);
       console.log(kakunouko);
