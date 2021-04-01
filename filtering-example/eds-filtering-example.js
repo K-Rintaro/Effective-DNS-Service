@@ -21,7 +21,7 @@ app.post('/dog', function(req, res, next) {
     const FQDN = req.body.fqdn;
     (async () => {
       const doh = require('@sagi.io/dns-over-https')
-      const dnsResponse  = await doh.query({name: FQDN})
+      const dnsResponse  = await doh.query({name: FQDN, hostname: '1dot1dot1dot1.cloudflare-dns.com'})
       const dnsip = dnsResponse.answers
       const kakunouko = []
       for (let i = 0; i < dnsip.length; i++){
@@ -39,8 +39,5 @@ app.post('/dog', function(req, res, next) {
 });
 
 app.post('/cat', function(req, res, next) {
-  const FQDN = req.body.fqdn;
-  dns.lookup(FQDN, function (err, addresses, family) {
-      res.send('sample connection was successed!')
-  });
+  res.send('sample connection was successed!')
 });

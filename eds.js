@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const helmet = require('helmet')
-
 const port = process.env.PORT || 3000;
 
 app.use(helmet())
@@ -18,20 +17,17 @@ app.post('/dog', function(req, res, next) {
     const FQDN = req.body.fqdn;
     (async () => {
       const doh = require('@sagi.io/dns-over-https')
-      const dnsResponse  = await doh.query({name: FQDN})
+      const dnsResponse  = await doh.query({name: FQDN, hostname: '1dot1dot1dot1.cloudflare-dns.com'})
       const dnsip = dnsResponse.answers
       const kakunouko = []
       for (let i = 0; i < dnsip.length; i++){
-          kakunouko.push({record: dnsip[i].type , address: dnsip[i].data});
+          kakunouko.push({record: dnsip[i].type , addresss: dnsip[i].data});
       }
-      res.send(kakunouko);
-      console.log(kakunouko);
+        res.send(kakunouko);
+        console.log(kakunouko);
     })()
 });
 
 app.post('/cat', function(req, res, next) {
-  const FQDN = req.body.fqdn;
-  dns.lookup(FQDN, function (err, addresses, family) {
-      res.send('sample connection was successed!')
-  });
+  res.send('sample connection was successed!')
 });
