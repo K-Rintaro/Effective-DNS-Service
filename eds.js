@@ -13,7 +13,7 @@ app.listen(port, ()=> {
   console.log(`EDS listening on port ${port}!`);
 });
 
-app.post('/dog', function(req, res, next) {
+app.post('/dog', function(req, res) {
     const FQDN = req.body.fqdn;
     (async () => {
       const doh = require('@sagi.io/dns-over-https')
@@ -28,6 +28,6 @@ app.post('/dog', function(req, res, next) {
     })()
 });
 
-app.post('/cat', function(req, res, next) {
+app.post('/cat', function(req, res) {
   res.send('sample connection was successed!')
 });
