@@ -17,7 +17,7 @@ app.post('/dog', function(req, res, next) {
     const FQDN = req.body.fqdn;
     (async () => {
       const doh = require('@sagi.io/dns-over-https')
-      const dnsResponse  = await doh.query({name: FQDN, hostname: '1dot1dot1dot1.cloudflare-dns.com'})
+      const dnsResponse  = await doh.query({name: FQDN, hostname: '8.8.8.8'})
       const dnsip = dnsResponse.answers
       const kakunouko = []
       for (let i = 0; i < dnsip.length; i++){
